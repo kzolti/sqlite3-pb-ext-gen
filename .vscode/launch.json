@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Program",
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "program": "${workspaceFolder}/src/index.ts",
+        "preLaunchTask": "tsc: build - tsconfig.json",
+        "args": ["-I/tmp/proto", "-o/tmp/out", "/tmp/proto/*.proto"  ],
+        "outFiles": [
+          "${workspaceFolder}/build/**/*.js"
+        ],
+        
+      }
+    ]
+  }

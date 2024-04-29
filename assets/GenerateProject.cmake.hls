@@ -1,0 +1,50 @@
+cmake_minimum_required(VERSION 3.13)
+project(sqlite3_pb_ext)
+
+set(CMAKE_C_STANDARD 17)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+
+message("Checking for sqlite3_pb_ext_gen...")
+execute_process(COMMAND sqlite3_pb_ext_gen --version
+    RESULT_VARIABLE sqlite3_pb_ext_gen_result
+    ERROR_QUIET
+    OUTPUT_QUIET
+)
+if(sqlite3_pb_ext_gen_result EQUAL 0)
+    message("Detected sqlite3_pb_ext_gen")
+
+else()
+    message(FATAL_ERROR "FATAL ERROR: 'sqlite3_pb_ext_gen' command not found.")
+endif()
+
+function(GenerateExtensionSourceCode)
+    # run sqlite_pb_ext source code generator
+    message(STATUS "run sqlite_pb_ext source code generator: sqlite3_pb_ext_gen {{sqlite3_pb_ext_gen_arg}} -o${CMAKE_CURRENT_SOURCE_DIR}")
+    execute_process(COMMAND "sqlite3_pb_ext_gen" {{sqlite3_pb_ext_gen_arg}} -o${CMAKE_CURRENT_SOURCE_DIR}
+        RESULT_VARIABLE EXECUTE_RESULT
+    )
+    if(EXECUTE_RESULT EQUAL 0)
+        file(READ ${CMAKE_CURRENT_SOURCE_DIR}/src/gen/generated_files.txt GENERATED_FILES)
+        # clean line in GENERATED_FILES
+        string(STRIP ${GENERATED_FILES} GENERATED_FILES)
+        string(REPLACE "\n" ";" GENERATED_FILES ${GENERATED_FILES})
+        # push GENERATED_FILES to parent scope
+        set(GENERATED_FILES ${GENERATED_FILES} PARENT_SCOPE)
+    else()
+        message(FATAL_ERROR "FATAL ERROR IN sqlite3_pb_ext_gen {{sqlite3_pb_ext_gen_arg}} -o${CMAKE_CURRENT_SOURCE_DIR}\n result: ${EXECUTE_RESULT}")
+    endif()
+endfunction()
+
+GenerateExtensionSourceCode()
+
+{{def_glob_my_protos}}
+add_custom_command(
+    OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/src/gen/generated_files.txt
+    COMMAND ${CMAKE_COMMAND} -H${CMAKE_CURRENT_SOURCE_DIR} -B${CMAKE_CURRENT_BINARY_DIR}
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    COMMENT "-------------------Run cmake-------------------"
+    DEPENDS {{depends}}
+)
+add_custom_target(generate_sqlite3_pb_ext_sources ALL
+    DEPENDS src/gen/generated_files.txt
+)

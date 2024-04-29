@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    //"strict": true,
+    "alwaysStrict": true,
+    "target": "ES2021",
+    "module": "commonjs",
+    "outDir": "build",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+    // "moduleResolution": "node",
+    "esModuleInterop": true,
+    //"forceConsistentCasingInFileNames": true,
+    //"noImplicitAny":false,
+    /* BEGIN JavaScript Support */
+    "allowJs": true, /* Allow JavaScript files to be a part of your program. Use the `checkJS` option to get errors from these files. */
+    "checkJs": true, /* Enable error reporting in type-checked JavaScript files. */
+    //"maxNodeModuleJsDepth": 5, /* Specify the maximum folder depth used for checking JavaScript files from `node_modules`. Only applicable with `allowJs`. */
+    /* END JavaScript Support */
+    //"skipLibCheck": true,
+    "rootDir": "src",
+    //"noEmit":true,
+    "sourceMap": true,
+    
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.js"
+, "src/templates/cmake/GenerateProject.cmake.hls"   ],
+  "exclude": [
+    "node_modules"
+  ]
+}

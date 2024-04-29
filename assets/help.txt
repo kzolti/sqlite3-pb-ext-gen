@@ -1,0 +1,25 @@
+Usage: sqlite3_pb_ext_gen [OPTION] PROTO_FILES
+dependencies: protoc
+Parse PROTO_FILES and generate output based on the options given:
+  -v, --version               Show sqlite3_pb_ext version and exit.
+  -h, --help                  Show this text and exit.
+  -oPATH, --out_path=PATH     Generated SQLite3 Protobuf extension path.
+  -IPATH, --proto_path=PATH   Specify the directory in which to search for
+                              imports.  May be specified multiple times;
+                              directories will be searched in order.  If not
+                              given, the current working directory is used.
+                              If not found in any of the these directories,
+                              the --descriptor_set_in descriptors will be
+                              checked for required proto file.
+  @<filename>                 Read options and filenames from file. If a
+                              relative file path is specified, the file will
+                              be searched in the working directory.
+                              The --proto_path option will not affect how this
+                              argument file is searched. Content of the file
+                              will be expanded in the position of @<filename>
+                              as in the argument list. Note that shell 
+                              expansion is not applied to the content of the 
+                              file (i.e., you cannot use quotes, wildcards,
+                              escapes, commands, etc.). Each line corresponds
+                              to a single argument, even if it contains spaces.                            
+
