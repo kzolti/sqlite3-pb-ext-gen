@@ -1,0 +1,3 @@
+[submodule "example"]
+	path = example
+	url = https://github.com/kzolti/sqlite3-pb-ext-example.git

@@ -15,14 +15,14 @@ This is an extension for SQLite3 that allows you to read binary(blob) Protocol B
 
 ### 1. Installation
 ``` 
-npm i -g sqlite3_pb_ext_gen
+npm i -g sqlite3-pb-ext-gen
 ```
 dependency: protobuf-compiler
 
 ##### Check dependency:
 ``` protoc --version```
-##### Check sqlite3_pb_ext_gen:
-``` sqlite3_pb_ext_gen --version```
+##### Check sqlite3-pb-ext-gen:
+``` sqlite3-pb-ext-gen --version```
 ### 2. Extension source code generation
 
 example command: 
@@ -31,10 +31,10 @@ example command:
 ```
 usable arguments:
 ```
-Usage: sqlite3_pb_ext_gen [OPTION] PROTO_FILES
+Usage: sqlite3-pb-ext-gen [OPTION] PROTO_FILES
 dependencies: protoc
 Parse PROTO_FILES and generate output based on the options given:
-  -v, --version               Show sqlite3_pb_ext version and exit.
+  -v, --version               Show sqlite3-pb-ext-gen version and exit.
   -h, --help                  Show this text and exit.
   -oPATH, --out_path=PATH     Generated SQLite3 Protobuf extension path.
   -IPATH, --proto_path=PATH   Specify the directory in which to search for
@@ -67,16 +67,16 @@ cmake .. && cmake --build .
 ```
 #### Official SQLite3 versions
 By using the CUSTOM_SQLITE3=ON switch, it is possible to create a plugin for other versions of sqlite3.  If you want to use the official sqlite version, use the variable SQLITE_VERSION_NUMBER.
-It is important to check that the SQLite Compile-time Options are correct for your project. You can change the compile time options in sqlite3_pb_ext/sqlite3/build_options.txt. 
+It is important to check that the SQLite Compile-time Options are correct for your project. You can change the compile time options in <--out_path>/sqlite3/build_options.txt. 
 
 ```
 mkdir build && cd build  \
 cmake -DCUSTOM_SQLITE3=ON -DSQLITE_VERSION_NUMBER=3410100 .. && cmake --build .
 ```
 #### SQLite3 based database
-For other SQLite3-based databases, you'll need to manually place the files required to create the extension in the sqlite3_pb_ext/sqlite3 directory.
-  - sqlite3_pb_ext/sqlite3/src/ - sqlite3ext.h, sqlite3.h
-  - sqlite3_pb_ext/sqlite3/out/ - libsqlite3.a
+For other SQLite3-based databases, you'll need to manually place the files required to create the extension in the <--out_path>/sqlite3 directory.
+  - <--out_path>/sqlite3/src/ - sqlite3ext.h, sqlite3.h
+  - <--out_path>/sqlite3/out/ - libsqlite3.a
 ```
 mkdir build && cd build  \
 cmake -DCUSTOM_SQLITE3=ON .. && cmake --build .
@@ -160,7 +160,7 @@ WHERE
   pb_extract(proto,'tutorial.Person','name')='John Doe 2005'
   AND phone_type.type_name='tutorial.Person.PhoneType.HOME';
 ```
-You can find the [complete cpp example](https://github.com/kzolti/sqlite3_pb_ext_example) in the examples directory.
+You can find the [complete cpp example](https://github.com/kzolti/sqlite3-pb-ext-example) in the examples directory.
 ```
 git submodule update --init \
 && cd example
@@ -172,5 +172,5 @@ The extension's reliance on the protobuf compiler's generated C++ code ensures s
 
 ### 7. Conclusion
 
-The sqlite3-pb-ext extension enables your ability to work with Protocol Buffers data within SQLite databases, providing a seamless and efficient solution for querying binary data. Make sure to follow the recommended practices for Protobuf (https://protobuf.dev/programming-guides/dos-donts/).
+The extension created with sqlite3-pb-ext-gen allows you to work with Protocol Buffers data within SQLite databases, providing a seamless and efficient solution for querying binary data. Make sure to follow the recommended practices for Protobuf (https://protobuf.dev/programming-guides/dos-donts/).
 

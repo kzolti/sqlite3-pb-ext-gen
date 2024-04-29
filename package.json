@@ -1,14 +1,14 @@
 {
-  "name": "sqlite3_pb_ext_gen",
+  "name": "sqlite3-pb-ext-gen",
   "version": "1.0.11",
   "description": "Sqlite3 protobuf extension generator",
   "main": "src/index.ts",
   "bin": {
-    "sqlite3_pb_ext_gen": "./bin/cli.js"
+    "sqlite3-pb-ext-gen": "./bin/cli.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kzolti/sqlite3_pb_ext_gen.git"
+    "url": "git+https://github.com/kzolti/sqlite3-pb-ext-gen.git"
   },
   "preferGlobal": true,
   "keywords": [
@@ -19,9 +19,9 @@
   "author": "Zoltan Istvan KADA <kada.zoli@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kzolti/sqlite3_pb_ext_gen/issues"
+    "url": "https://github.com/kzolti/sqlite3-pb-ext-gen/issues"
   },
-  "homepage": "https://github.com/kzolti/sqlite3_pb_ext_gen#readme",
+  "homepage": "https://github.com/kzolti/sqlite3-pb-ext-gen#readme",
   "scripts": {
     "start": "ts-node src/index.ts -I/tmp/proto -o/tmp/tmp/sqlite3_addressbook",
     "build": "tsc",
