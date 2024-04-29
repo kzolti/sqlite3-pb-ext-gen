@@ -27,7 +27,7 @@ dependency: protobuf-compiler
 
 example command: 
 ```
-./sqlite_pb_ext_gen-linux --proto_path=/tmp/proto --out_path=/tmp/out addressbook.proto
+sqlite3-pb-ext-gen --proto_path=/tmp/proto --out_path=/tmp/out addressbook.proto
 ```
 usable arguments:
 ```
