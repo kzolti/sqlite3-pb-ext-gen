@@ -4,8 +4,8 @@
 const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
-const moduleRoot = path.join(__dirname, 'build');
-if (!fs.existsSync(path.join(moduleRoot, 'node_modules'))) {
+const moduleRoot = path.join(__dirname, '..');
+if (!fs.existsSync(path.join(moduleRoot, 'build'))) {
     console.log("- Module install and setup ");
     try {
         execSync('npm install', { stdio: 'inherit', cwd: moduleRoot });
