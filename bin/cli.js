@@ -4,7 +4,7 @@
 const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
-const moduleRoot = path.join(__dirname, '..');
+const moduleRoot = path.join(__dirname, 'build');
 if (!fs.existsSync(path.join(moduleRoot, 'node_modules'))) {
     console.log("- Module install and setup ");
     try {
@@ -17,4 +17,4 @@ if (!fs.existsSync(path.join(moduleRoot, 'node_modules'))) {
     }
     console.log("- Install and setup complete, run ... ");
 }
-require('../build/index');
+require(path.join(moduleRoot,'build','index'));
