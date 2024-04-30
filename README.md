@@ -62,7 +62,7 @@ Parse PROTO_FILES and generate output based on the options given:
 ####  System SQLite3 
 This command creates an extension for the sqlite3 version installed on the system
 ```
-mkdir build && cd build  \
+mkdir build && cd build  && \
 cmake .. && cmake --build . 
 ```
 #### Official SQLite3 versions
@@ -70,7 +70,7 @@ By using the CUSTOM_SQLITE3=ON switch, it is possible to create a plugin for oth
 It is important to check that the SQLite Compile-time Options are correct for your project. You can change the compile time options in <--out_path>/sqlite3/build_options.txt. 
 
 ```
-mkdir build && cd build  \
+mkdir build && cd build  && \
 cmake -DCUSTOM_SQLITE3=ON -DSQLITE_VERSION_NUMBER=3410100 .. && cmake --build .
 ```
 #### SQLite3 based database
@@ -78,7 +78,7 @@ For other SQLite3-based databases, you'll need to manually place the files requi
   - <--out_path>/sqlite3/src/ - sqlite3ext.h, sqlite3.h
   - <--out_path>/sqlite3/out/ - libsqlite3.a
 ```
-mkdir build && cd build  \
+mkdir build && cd build  && \
 cmake -DCUSTOM_SQLITE3=ON .. && cmake --build .
 ```
 ### 3. SQL Function and Virtual Tables
