@@ -2,4 +2,6 @@
 !*/
 !CMakeLists.txt
 !build_options.txt
+!version_numbers.json
 !.gitignore
+!.npmignore
