@@ -13,8 +13,7 @@
   "preferGlobal": true,
   "keywords": [
     "\"sqlite3\"",
-    "\"protobuf\"",
-    "]"
+    "\"protobuf\""
   ],
   "author": "Zoltan Istvan KADA <kada.zoli@gmail.com>",
   "license": "MIT",
