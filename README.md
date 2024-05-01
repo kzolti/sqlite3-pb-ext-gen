@@ -1,4 +1,4 @@
-# sqlite3-pb-ext 
+# sqlite3-pb-ext-gen 
 **SQLite3 Protobuf extension generator**
 
 The Node.js program generates the source code in C/C++ from the *.proto files to be used in the database. After the build, an extension that can be loaded into the database manager is created. Then, the protobuf data stored in binary can be read using the **pb_extract** function and the **pb_field** and **pb_each** virtual tables. It is designed to be efficient and fast, as it avoids using the descriptor and reflection APIs . This extension builds directly on the C++ code generated with 'protoc'.
