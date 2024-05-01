@@ -31,7 +31,8 @@
   "scripts": {
     "start": "ts-node src/index.ts -I/tmp/proto -o/tmp/tmp/sqlite3_addressbook",
     "build": "tsc",
-    "package": "yarn build && pkg --config package.json build/index.js"
+    "package": "npm run build && pkg --config package.json build/index.js",
+    "postinstall": "npm run build"
   },
   "devDependencies": {
     "@types/google-protobuf": "^3.15.6",
