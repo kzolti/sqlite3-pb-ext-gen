@@ -3,6 +3,10 @@
   "version": "1.0.19",
   "description": "Sqlite3 protobuf extension generator",
   "main": "src/index.ts",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/kzolti"
+  },
   "bin": {
     "sqlite3-pb-ext-gen": "./bin/cli.js"
   },
