@@ -12,7 +12,10 @@
   },
   "preferGlobal": true,
   "keywords": [
+    "\"developer tools\"",
+    "\"sqlite\"",
     "\"sqlite3\"",
+    "\"proto\"",
     "\"protobuf\""
   ],
   "author": "Zoltan Istvan KADA <kada.zoli@gmail.com>",
