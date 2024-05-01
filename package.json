@@ -1,6 +1,6 @@
 {
   "name": "sqlite3-pb-ext-gen",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "Sqlite3 protobuf extension generator",
   "main": "src/index.ts",
   "bin": {
