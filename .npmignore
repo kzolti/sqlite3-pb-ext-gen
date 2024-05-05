@@ -1,0 +1,10 @@
+node_modules
+yarn.*
+*-lock.json
+*.lock
+pkg
+
+.github
+.gitmodules
+.vscode
+tsconfig.json
