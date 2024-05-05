@@ -23,6 +23,10 @@ dependency: protobuf-compiler
 ``` protoc --version```
 ##### Check sqlite3-pb-ext-gen:
 ``` sqlite3-pb-ext-gen --version```
+##### Update for sqlite3-pb-ext-gen:
+``` npm update -g sqlite3-pb-ext-gen```
+##### View sqlite3-pb-ext-gen:
+``` npm view sqlite3-pb-ext-gen```
 ### 2. Extension source code generation
 
 example command: 
@@ -66,12 +70,12 @@ mkdir build && cd build  && \
 cmake .. && cmake --build . 
 ```
 #### Official SQLite3 versions
-By using the CUSTOM_SQLITE3=ON switch, it is possible to create a plugin for other versions of sqlite3.  If you want to use the official sqlite version, use the variable SQLITE_VERSION_NUMBER.
+By using the CUSTOM_SQLITE3=ON switch, it is possible to create a plugin for other versions of sqlite3.  If you want to use the official sqlite version, use the variable SQLITE_VERSION.
 It is important to check that the SQLite Compile-time Options are correct for your project. You can change the compile time options in <--out_path>/sqlite3/build_options.txt. 
 
 ```
 mkdir build && cd build  && \
-cmake -DCUSTOM_SQLITE3=ON -DSQLITE_VERSION_NUMBER=3410100 .. && cmake --build .
+cmake -DCUSTOM_SQLITE3=ON -DSQLITE_VERSION=3.44.0 .. && cmake --build .
 ```
 #### SQLite3 based database
 For other SQLite3-based databases, you'll need to manually place the files required to create the extension in the <out_path>/sqlite3 directory.

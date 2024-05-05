@@ -21,7 +21,7 @@ const template:string=`/*
 #include <sqlite3ext.h>
 #endif
 #ifdef CUSTOM_SQLITE
-#include "../../sqlite3/src/sqlite3ext.h"
+#include "../../sqlite3/include/sqlite3ext.h"
 #endif
 #include "../common.h"
 {{getIncludes}}

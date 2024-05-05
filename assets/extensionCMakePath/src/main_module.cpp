@@ -6,13 +6,12 @@
 #include <sqlite3ext.h>
 #endif
 #ifdef CUSTOM_SQLITE
-#include "../sqlite3/src/sqlite3.h"
-#include "../sqlite3/src/sqlite3ext.h"
+#include "../sqlite3/include/sqlite3.h"
+#include "../sqlite3/include/sqlite3ext.h"
 #endif
 #endif
 SQLITE_EXTENSION_INIT1
 #include <assert.h>
-//#include "../proto/gen/pbinvoke.h"
 #include "../src/gen/pbExtract.h"
 #include "../src/pb_field.h"
 #include "../src/pb_each.h"

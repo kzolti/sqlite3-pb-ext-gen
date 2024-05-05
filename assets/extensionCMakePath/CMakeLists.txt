@@ -106,13 +106,13 @@ if(CUSTOM_SQLITE3)
         ${GENERATED_FILES}
     )
     target_compile_definitions(custom_sqlite3_pb_ext PRIVATE CUSTOM_SQLITE)
-    if(DEFINED SQLITE_VERSION_NUMBER)
+    if(DEFINED SQLITE_VERSION)
         add_dependencies(custom_sqlite3_pb_ext sqlite3)
     endif()
     add_library(sqlite3lib STATIC IMPORTED)
     set_target_properties(sqlite3lib PROPERTIES
-        IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/sqlite3/out/libsqlite3.a
-        INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/sqlite3/src
+        IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/sqlite3/target/libsqlite3.a
+        INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIR}/sqlite3/include
     )
     set_target_properties(custom_sqlite3_pb_ext PROPERTIES
         LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/lib/custom_sqlite3"
