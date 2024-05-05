@@ -14,6 +14,9 @@
 #include <cstring>
 SQLITE_EXTENSION_INIT3
 
+#if SQLITE_VERSION_NUMBER < 3026000
+#error "This project requires SQLite version 3.26.0 or later! Allow the xBestIndex() method of virtual table implementations to return SQLITE_CONSTRAINT to indicate that the proposed query plan is unusable and should not be given further consideration."
+#endif
 
 class PbEach
 {

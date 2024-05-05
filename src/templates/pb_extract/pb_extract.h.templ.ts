@@ -10,7 +10,7 @@ const template:string=`/*
 **
 **    Description: {{description}}
 **
-**    For more information, visit: https://github.com/kzolti/sqlite3_pb_ext/
+**    For more information, visit: https://github.com/kzolti/sqlite3-pb-ext-gen/
 */
 
 #ifndef PBEXTRACT_H

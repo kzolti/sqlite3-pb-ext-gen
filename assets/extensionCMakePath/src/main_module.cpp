@@ -9,6 +9,12 @@
 #include "../sqlite3/include/sqlite3.h"
 #include "../sqlite3/include/sqlite3ext.h"
 #endif
+
+// // check Pointer Passing Interfaces 
+// #if SQLITE_VERSION_NUMBER < 3020000
+// #error "This project requires SQLite version 3.20.0 or later! https://sqlite.org/bindptr.html"
+// #endif
+
 #endif
 SQLITE_EXTENSION_INIT1
 #include <assert.h>
@@ -72,7 +78,7 @@ __declspec(dllexport)
         //        register_pb_extract(db, pzErrMsg, pApi);
         if (rc == SQLITE_OK){
             rc = sqlite3_create_function(db, "pb_extract", 3,
-                                         SQLITE_UTF8 | SQLITE_DETERMINISTIC | SQLITE_INNOCUOUS, 0, pb_extract, 0, 0);
+                                         SQLITE_UTF8 | SQLITE_DETERMINISTIC , 0, pb_extract, 0, 0);
         }else{
             std::cerr<<"8e5a44d fail"<<std::endl;
         }
