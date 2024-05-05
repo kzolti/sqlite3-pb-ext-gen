@@ -1,6 +1,6 @@
 {
   "name": "sqlite3-pb-ext-gen",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Sqlite3 Protobuf extension generator",
   "main": "src/index.ts",
   "funding": {
@@ -31,6 +31,7 @@
   "scripts": {
     "start": "ts-node src/index.ts -I/tmp/proto -o/tmp/tmp/sqlite3_addressbook",
     "build": "tsc",
+    "pack": "npm pack --dry-run.",
     "package": "npm run build && pkg --config package.json build/index.js",
     "prepublishOnly": "npm i && npm run build"
   },
