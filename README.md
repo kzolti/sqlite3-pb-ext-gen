@@ -79,8 +79,8 @@ cmake -DCUSTOM_SQLITE3=ON -DSQLITE_VERSION=3.44.0 .. && cmake --build .
 ```
 #### SQLite3 based database
 For other SQLite3-based databases, you'll need to manually place the files required to create the extension in the <out_path>/sqlite3 directory.
-  - <out_path>/sqlite3/src/ - sqlite3ext.h, sqlite3.h
-  - <out_path>/sqlite3/out/ - libsqlite3.a
+  - <out_path>/sqlite3/include/ - sqlite3ext.h, sqlite3.h
+  - <out_path>/sqlite3/target/ - libsqlite3.a
 ```
 mkdir build && cd build  && \
 cmake -DCUSTOM_SQLITE3=ON .. && cmake --build .
