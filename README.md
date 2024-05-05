@@ -4,7 +4,7 @@
 The Node.js program generates the source code in C/C++ from the *.proto files to be used in the database. After the build, an extension that can be loaded into the database manager is created. Then, the protobuf data stored in binary can be read using the **pb_extract** function and the **pb_field** and **pb_each** virtual tables. It is designed to be efficient and fast, as it avoids using the descriptor and reflection APIs . This extension builds directly on the C++ code generated with 'protoc'.
 
 ### Table of Contents
-
+0. [Platform Support](#0-platform-support)
 1. [Installation](#1-installation)
 2. [Extension source code generation](#2-extension-source-code-generation)
 3. [Making an extension](#3-making-an-extension)
@@ -12,6 +12,10 @@ The Node.js program generates the source code in C/C++ from the *.proto files to
 4. [SQL example](#4-sql-example)
 5. [Performance](#5-performance)
 7. [Conclusion](#7-conclusion)
+
+### 0. Platform Support
+Linux x86_64  
+This project has been exclusively tested on Linux operating systems. We do not guarantee its functionality on other operating systems.
 
 ### 1. Installation
 ``` 
