@@ -21,16 +21,16 @@ This project has been exclusively tested on Linux operating systems. We do not g
 ``` 
 npm i -g sqlite3-pb-ext-gen
 ```
-dependency: protobuf-compiler
-
-##### Check dependency:
+##### Check protobuf-compiler dependency:
 ``` protoc --version```
+<!---
 ##### Check sqlite3-pb-ext-gen:
 ``` sqlite3-pb-ext-gen --version```
 ##### Update for sqlite3-pb-ext-gen:
 ``` npm update -g sqlite3-pb-ext-gen```
 ##### View sqlite3-pb-ext-gen:
 ``` npm view sqlite3-pb-ext-gen```
+--->
 ### 2. Extension source code generation
 
 example command: 
