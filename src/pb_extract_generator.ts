@@ -267,7 +267,7 @@ class PbExtractGenerator {
   private getCppInitFunc(): string {
     let ret: Set<string> = new Set();
     const templ = `const google::protobuf::Message *PbExtract::messageInicializatorFuncName(google::protobuf::Arena &arena, const std::string &blob){
-    package::Message* ret = google::protobuf::Arena::CreateMessage<package::Message>(&arena);
+    package::Message* ret = google::protobuf::Arena::Create<package::Message>(&arena);
     ret->ParseFromArray(blob.c_str(),blob.size());
     return ret;
 }`;
