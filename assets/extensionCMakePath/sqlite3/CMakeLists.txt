@@ -83,7 +83,7 @@ if(DEFINED SQLITE_VERSION)
                 set(VERSION_YEAR ${CMAKE_MATCH_1})
                 message("Version and year found in version_numbers.json: ${SQLITE_VERSION}, ${VERSION_YEAR}")
             else()
-                set(VERSION_YEAR "2024")
+                set(VERSION_YEAR "2025")
                 message(WARNING "Does not find SQLITE_VERSION '${SQLITE_VERSION}' in version_numbers.json set VERSION_YEAR to ${VERSION_YEAR}")
             endif()
             set(SQLITE_DOWNLOAD_URL "https://www.sqlite.org/${VERSION_YEAR}/sqlite-src-${ENCODED_VERSION_NAME}.zip")
@@ -139,14 +139,29 @@ if(DEFINED SQLITE_VERSION)
     add_executable(sqlite3_executable ${INCLUDE_DIR}/shell.c ${INCLUDE_DIR}/sqlite3.c)
     include(FindThreads)
     target_link_libraries(sqlite3_executable -lm ${CMAKE_THREAD_LIBS_INIT} ${CMAKE_DL_LIBS})
+    
+    # DEPENDS is invalid argument
+    # add_custom_command(TARGET sqlite3 POST_BUILD
+    #     COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:sqlite3> ${TARGET_DIR}/libsqlite3.a
+    #     DEPENDS sqlite3
+    # )
+    # add_custom_command(TARGET sqlite3_executable POST_BUILD
+    #     COMMAND ${CMAKE_COMMAND} -E rename $<TARGET_FILE:sqlite3_executable> ${CMAKE_CURRENT_BINARY_DIR}/sqlite3
+    #     COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/sqlite3 ${TARGET_DIR}/sqlite3
+    #     DEPENDS sqlite3_executable
+    # )
+
     add_custom_command(TARGET sqlite3 POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:sqlite3> ${TARGET_DIR}/libsqlite3.a
+    )
+    
+    add_custom_target(copy_sqlite3 ALL
         DEPENDS sqlite3
     )
+    
     add_custom_command(TARGET sqlite3_executable POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E rename $<TARGET_FILE:sqlite3_executable> ${CMAKE_CURRENT_BINARY_DIR}/sqlite3
         COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_BINARY_DIR}/sqlite3 ${TARGET_DIR}/sqlite3
-        DEPENDS sqlite3_executable
     )
 else()
     message(FATAL_ERROR "SQLITE_VERSION variable is not defined. Set it to the desired value. Help: https://github.com/kzolti/sqlite3")
