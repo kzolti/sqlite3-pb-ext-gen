@@ -35,7 +35,7 @@ int PbExtract::{{funcName}}(sqlite3_context *ctx, const google::protobuf::Messag
                 }
             }
         }else{
-            throw std::invalid_argument("Not valid repeated field index in " + m->GetTypeName() + ".{{field_type.name}}(" + std::to_string(repeatedIndex) + ") use pb_each instead");
+            throw std::invalid_argument("Not valid repeated field index in " + std::string(m->GetTypeName()) + ".{{field_type.name}}(" + std::to_string(repeatedIndex) + ") use pb_each instead");
         }
     }else{
         if( fieldInfo && repeatedIndex==-1){
