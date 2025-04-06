@@ -35,7 +35,7 @@ int PbExtract::{{funcName}}(sqlite3_context *ctx, const google::protobuf::Messag
                     sqlite3_result_text(ctx, subMessage.DebugString().c_str(), subMessage.DebugString().size(), SQLITE_TRANSIENT);
                     ret = SQLITE_OK;
                 }else{
-                    throw std::invalid_argument("Not found '"+method_name+"' field in " + subMessage.GetTypeName().c_str());
+                    throw std::invalid_argument("Not found '"+method_name+"' field in " + std::string(subMessage.GetTypeName()));
                 }
             }else{
                 ret = std::invoke(it->second,ctx, &subMessage, index, pathsVector, fieldInfo);
